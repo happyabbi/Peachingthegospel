@@ -33,6 +33,7 @@ import org.church.peachingthegospel.app.R;
  */
 
 public class SimpleImageActivity extends ActionBarActivity {
+	android.support.v7.app.ActionBar actionbar;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,7 +46,7 @@ public class SimpleImageActivity extends ActionBarActivity {
 		String contextType = getIntent().getStringExtra("contextType");
  		Fragment fr;
 		String tag;
-		android.support.v7.app.ActionBar actionbar = getSupportActionBar();
+		actionbar = getSupportActionBar();
 		actionbar.setDisplayHomeAsUpEnabled(true);
 		int titleRes;
 		switch (frIndex) {
@@ -59,6 +60,7 @@ public class SimpleImageActivity extends ActionBarActivity {
 					((ImageListFragment)fr).setTitles(titles);
 					((ImageListFragment)fr).setContextType(contextType);
 				}
+				actionbar.show();
 				titleRes = R.string.ac_name_image_list;
 				break;
 			case ImageGridFragment.INDEX:
@@ -68,6 +70,7 @@ public class SimpleImageActivity extends ActionBarActivity {
 					fr = new ImageGridFragment();
                     ((ImageGridFragment)fr).setImageUrls(imageUrls);
 				}
+				actionbar.show();
 				titleRes = R.string.ac_name_image_grid;
 				break;
 			case ImagePagerFragment.INDEX:
@@ -78,6 +81,7 @@ public class SimpleImageActivity extends ActionBarActivity {
 					((ImagePagerFragment)fr).setImageUrls(imageUrls);
 					fr.setArguments(getIntent().getExtras());
 				}
+				actionbar.hide();
 				titleRes = R.string.ac_name_image_pager;
 				break;
 			case ImageGalleryFragment.INDEX:
@@ -86,6 +90,7 @@ public class SimpleImageActivity extends ActionBarActivity {
 				if (fr == null) {
 					fr = new ImageGalleryFragment();
 				}
+				actionbar.show();
 				titleRes = R.string.ac_name_image_gallery;
 				break;
 		}
