@@ -15,9 +15,11 @@
  *******************************************************************************/
 package org.church.peachingthegospel.app.activity;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+
 import android.support.v7.app.ActionBarActivity;
 import org.church.peachingthegospel.app.Constants;
 import org.church.peachingthegospel.app.fragment.ImageGalleryFragment;
@@ -43,6 +45,8 @@ public class SimpleImageActivity extends ActionBarActivity {
 		String contextType = getIntent().getStringExtra("contextType");
  		Fragment fr;
 		String tag;
+		android.support.v7.app.ActionBar actionbar = getSupportActionBar();
+		actionbar.setDisplayHomeAsUpEnabled(true);
 		int titleRes;
 		switch (frIndex) {
 			default:
