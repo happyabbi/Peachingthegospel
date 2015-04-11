@@ -90,6 +90,7 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 					if(getTitles()[position].equals("中文")){
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						intent.putExtra("title", "中文");
 						String[] imageUrls = Constants.HUMANLIFE_TW_IMAGES;
 						intent.putExtra("images",imageUrls);
 						startActivity(intent);
@@ -104,12 +105,16 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 					if(getTitles()[position].equals("中文")){
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						intent.putExtra("title", "中文");
+
 						String[] imageUrls = Constants.PERSONAGE_TW;
 						intent.putExtra("images",imageUrls);
 						startActivity(intent);
 					}else if(getTitles()[position].equals("英文")){
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						intent.putExtra("title", "英文");
+
 						String[] imageUrls = Constants.PERSONAGE_EN;
 						intent.putExtra("images",imageUrls);
 						startActivity(intent);
@@ -122,17 +127,21 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 					if(getTitles()[position].equals("中文(男生版)")){
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						intent.putExtra("title", "中文(男生版)");
+
 						String[] imageUrls = Constants.WEAK_TW_FEMALE;
 						intent.putExtra("images",imageUrls);
 						startActivity(intent);
 					}if(getTitles()[position].equals("中文(女生版)")){
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
+						intent.putExtra("title", "中文(女生版)");
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
 						String[] imageUrls = Constants.WEAK_TW_MALE;
 						intent.putExtra("images",imageUrls);
 						startActivity(intent);
 					}else if(getTitles()[position].equals("英文")){
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
+						intent.putExtra("title", "英文");
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
 						String[] imageUrls = Constants.WEAK_EN;
 						intent.putExtra("images",imageUrls);
@@ -145,12 +154,14 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 				}else if (getContextType().equals("Parcheddry")){ //乾渴的婦人
 					if(getTitles()[position].equals("中文")){
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
+						intent.putExtra("title", "中文");
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
 						String[] imageUrls = Constants.PARCHEDDRY_TW;
 						intent.putExtra("images",imageUrls);
 						startActivity(intent);
 					}else if(getTitles()[position].equals("英文")){
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
+						intent.putExtra("title", "英文");
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
 						String[] imageUrls = Constants.PARCHEDDRY_EN;
 						intent.putExtra("images",imageUrls);
@@ -158,12 +169,15 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 					}else if(getTitles()[position].equals("日文")){
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						intent.putExtra("title", "日文");
 						String[] imageUrls = Constants.PARCHEDDRY_JP;
 						intent.putExtra("images",imageUrls);
 						startActivity(intent);
 					}else if(getTitles()[position].equals("俄文")) {
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						intent.putExtra("title", "俄文");
+
 						String[] imageUrls = Constants.PARCHEDDRY_RUS;
 						intent.putExtra("images",imageUrls);
 						startActivity(intent);

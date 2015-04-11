@@ -28,12 +28,14 @@ import org.church.peachingthegospel.app.R;
 /**
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
  */
+
 public class SimpleImageActivity extends FragmentActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		int frIndex = getIntent().getIntExtra(Constants.Extra.FRAGMENT_INDEX, 0);
+		String title = getIntent().getStringExtra("title");
         String imageKey="images";
         String[] imageUrls = getIntent().getStringArrayExtra(imageKey);
 		String[] titles =getIntent().getStringArrayExtra("titles");
@@ -83,7 +85,7 @@ public class SimpleImageActivity extends FragmentActivity {
 				break;
 		}
 
-		setTitle(titleRes);
+		setTitle(title);
 		getSupportFragmentManager().beginTransaction().replace(android.R.id.content, fr, tag).commit();
 	}
 }

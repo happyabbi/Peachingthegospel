@@ -17,17 +17,13 @@ import org.church.peachingthegospel.app.util.ViewHolder;
  * Created by abraham.chen on 2015/3/15.
  */
 public class GalleryImageAdapter extends BaseAdapter {
-    private LayoutInflater inflater;
     private Context context;
     private String[] imageUrls;
     private DisplayImageOptions options;
 
     public GalleryImageAdapter(Context context,String[] imageUrls) {
-
-        inflater = LayoutInflater.from(context);
         this.context=context;
         this.imageUrls=imageUrls;
-
         options = new DisplayImageOptions.Builder()
                 .showImageOnLoading(R.drawable.ic_stub)
                 .showImageForEmptyUri(R.drawable.ic_empty)

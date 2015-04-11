@@ -22,7 +22,6 @@ import org.church.peachingthegospel.app.util.ViewHolder;
  */
 public class GridImageAdapter extends BaseAdapter {
 
-    private LayoutInflater inflater;
     private Context context;
     private String[] imageUrls;
     DisplayImageOptions options;
@@ -31,7 +30,6 @@ public class GridImageAdapter extends BaseAdapter {
     public GridImageAdapter(Context context, String[] imageUrls) {
         this.context=context;
         this.imageUrls=imageUrls;
-        inflater = LayoutInflater.from(context);
         options = new DisplayImageOptions.Builder()
                 .showImageOnLoading(R.drawable.ic_stub)
                 .showImageForEmptyUri(R.drawable.ic_empty)

@@ -60,18 +60,15 @@ public class PagerImageAdapter extends PagerAdapter {
         assert imageLayout != null;
         PhotoView imageView = (PhotoView) imageLayout.findViewById(R.id.image);
         final ProgressBar spinner = (ProgressBar) imageLayout.findViewById(R.id.loading);
-
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context)
                 .defaultDisplayImageOptions(options)
                 .build();
         imageLoader.init(config);
-
         imageLoader.displayImage(imageUrls[position], imageView, options, new SimpleImageLoadingListener() {
             @Override
             public void onLoadingStarted(String imageUri, View view) {
                 spinner.setVisibility(View.VISIBLE);
             }
-
             @Override
             public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
                 String message = null;
@@ -93,16 +90,13 @@ public class PagerImageAdapter extends PagerAdapter {
                         break;
                 }
                 Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-
                 spinner.setVisibility(View.GONE);
             }
-
             @Override
             public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
                 spinner.setVisibility(View.GONE);
             }
         });
-
         view.addView(imageLayout, 0);
         return imageLayout;
     }

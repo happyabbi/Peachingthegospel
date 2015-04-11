@@ -17,8 +17,6 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import org.church.peachingthegospel.app.R;
 import org.church.peachingthegospel.app.util.ViewHolder;
-
-
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -26,8 +24,7 @@ import java.util.List;
 /**
  * Created by abraham.chen on 2015/3/15.
  */
-public class ListImageAdapter  extends BaseAdapter {
-    private LayoutInflater inflater;
+public class ListImageAdapter extends BaseAdapter {
     private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
     private Context context;
     private String[] imageUrls;
@@ -36,7 +33,6 @@ public class ListImageAdapter  extends BaseAdapter {
 
     ImageLoader imageLoader = ImageLoader.getInstance();
     public ListImageAdapter(Context context, String[] imageUrls,String[] titles) {
-        this.inflater = LayoutInflater.from(context);
         this.context= context;
         this.imageUrls=imageUrls;
         this.titles=titles;

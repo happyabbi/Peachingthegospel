@@ -37,8 +37,6 @@ public class ImageGalleryFragment extends BaseFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-
 	}
 
 	@SuppressWarnings("deprecation")
@@ -56,12 +54,10 @@ public class ImageGalleryFragment extends BaseFragment {
 		return rootView;
 	}
 
-
 	private void startImagePagerActivity(int position) {
 		Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 		intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImagePagerFragment.INDEX);
 		intent.putExtra(Constants.Extra.IMAGE_POSITION, position);
 		startActivity(intent);
 	}
-
 }

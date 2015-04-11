@@ -20,18 +20,21 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import com.nostra13.universalimageloader.core.ImageLoader;
-
-
 import com.nostra13.universalimageloader.utils.L;
 import org.church.peachingthegospel.app.Constants;
 import org.church.peachingthegospel.app.R;
+import org.church.peachingthegospel.app.adapter.HomeListViewAdapter;
+import org.church.peachingthegospel.app.adapter.HomeListViewItem;
 import org.church.peachingthegospel.app.fragment.ImageListFragment;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
@@ -39,7 +42,9 @@ import java.io.InputStream;
 public class HomeActivity extends Activity {
 
 	private static final String TEST_FILE_NAME = "Universal Image Loader @#&=+-_.,!()~'%20.png";
-
+	private HomeListViewAdapter homeListViewAdapter;
+	private List<HomeListViewItem> homeListViewItemList;
+	private ListView listView;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,14 +53,45 @@ public class HomeActivity extends Activity {
 		if (!testImageOnSdCard.exists()) {
 			copyTestImageToSdCard(testImageOnSdCard);
 		}
+		homeListViewItemList=new ArrayList<HomeListViewItem>();
+		homeListViewItemList.add(new HomeListViewItem(R.drawable.img_2858,"人生的奧祕"));
+		homeListViewItemList.add(new HomeListViewItem(R.drawable.img_2903,"軟弱人的需要"));
+		homeListViewItemList.add(new HomeListViewItem(R.drawable.img_2868,"上流人的需要"));
+		homeListViewItemList.add(new HomeListViewItem(R.drawable.img_2937,"乾渴婦人的需要"));
+		homeListViewAdapter=new HomeListViewAdapter(this,homeListViewItemList);
+		listView= (ListView)findViewById(R.id.ac_home_listview);
+		listView.setAdapter(homeListViewAdapter);
+		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				switch (position){
+					case 0:
+						onImageHumanLifeListClick(view);
+						break;
+					case 1:
+						WeakClick(view);
+						break;
+					case 2:
+						PersonageClick(view);
+						break;
+					case 3:
+						ParcheddryClick(view);
+						break;
+				}
+			}
+		});
 	}
 
 	public void onImageHumanLifeListClick(View view) {
 		Intent intent = new Intent(this, SimpleImageActivity.class);
 		intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageListFragment.INDEX);
-        String[] imageUrls = Constants.TEST;
+		intent.putExtra("title", "人生的奧祕");
+        String[] imageUrls  = new String[]{
+				"drawable://" + R.drawable.tw
+
+		};
 		String contextType="HumanLife";
-		String[] titles ={"中文","英文","日文","俄文"};
+		String[] titles ={"中文"};
         intent.putExtra("images",imageUrls);
 		intent.putExtra("titles",titles);
 		intent.putExtra("contextType",contextType);
@@ -65,6 +101,7 @@ public class HomeActivity extends Activity {
 	public void ParcheddryClick(View view) {
 		Intent intent = new Intent(this, SimpleImageActivity.class);
 		intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageListFragment.INDEX);
+		intent.putExtra("title","乾渴婦人的需要");
 		String[] imageUrls = Constants.TEST;
 		String contextType="Parcheddry";
 		String[] titles ={"中文","英文","日文","俄文"};
@@ -77,9 +114,13 @@ public class HomeActivity extends Activity {
 	public void PersonageClick(View view) {
 		Intent intent = new Intent(this, SimpleImageActivity.class);
 		intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageListFragment.INDEX);
-		String[] imageUrls = Constants.TEST;
+		String[] imageUrls = new String[]{
+				"drawable://" + R.drawable.tw,
+				"drawable://" + R.drawable.en,
+		};
+		intent.putExtra("title","上流人的需要");
 		String contextType="Personage";
-		String[] titles ={"中文","英文","日文","俄文"};
+		String[] titles ={"中文","英文"};
 		intent.putExtra("images",imageUrls);
 		intent.putExtra("titles",titles);
 		intent.putExtra("contextType",contextType);
@@ -89,9 +130,15 @@ public class HomeActivity extends Activity {
 	public void WeakClick(View view) {
 		Intent intent = new Intent(this, SimpleImageActivity.class);
 		intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageListFragment.INDEX);
-		String[] imageUrls = Constants.TEST1;
+		String[] imageUrls = new String[]{
+				"drawable://" + R.drawable.tw,
+				"drawable://" + R.drawable.tw,
+				"drawable://" + R.drawable.en,
+		};
+		intent.putExtra("title","軟弱人的需要");
 		String contextType="Weak";
-		String[] titles ={"中文(男生版)","中文(女生版)","英文","日文","俄文"};
+//		String[] titles ={"中文(男生版)","中文(女生版)","英文","日文","俄文"};
+		String[] titles ={"中文(男生版)","中文(女生版)","英文"};
 		intent.putExtra("images",imageUrls);
 		intent.putExtra("titles",titles);
 		intent.putExtra("contextType",contextType);

@@ -28,13 +28,16 @@ import org.church.peachingthegospel.app.R;
  */
 public class ImageGridFragment extends AbsListViewBaseFragment {
 	public static final int INDEX = 1;
-    public String[] getImageUrls() {
+	private String[] imageUrls;
+
+	public String[] getImageUrls() {
         return imageUrls;
     }
+
     public void setImageUrls (String[] imageUrls) {
         this.imageUrls = imageUrls;
     }
-    private String[] imageUrls;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

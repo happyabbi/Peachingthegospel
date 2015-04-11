@@ -25,7 +25,6 @@ import org.church.peachingthegospel.app.R;
 import org.church.peachingthegospel.app.fragment.ImageGridFragment;
 import org.church.peachingthegospel.app.fragment.ImageListFragment;
 
-
 /**
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
  */
@@ -53,7 +52,6 @@ public class ComplexImageActivity extends FragmentActivity {
 	}
 
 	private class ImagePagerAdapter extends FragmentPagerAdapter {
-
 		Fragment listFragment;
 		Fragment gridFragment;
 

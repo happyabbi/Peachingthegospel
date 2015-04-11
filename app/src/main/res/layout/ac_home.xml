@@ -1,62 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
-	<LinearLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:orientation="vertical"
-		android:gravity="center">
+	<ListView android:id="@+id/ac_home_listview"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content"/>
 
-		<TextView
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:gravity="center"
-			android:paddingBottom="10dip"
-			android:paddingTop="20dip"
-			android:text="@string/label_title"
-			android:textSize="24sp" android:textColor="@android:color/background_dark"/>
 
-		<Button
-			android:layout_width="320dp"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="10dip"
-			android:layout_marginRight="10dip"
-            android:id="@+id/item1"
-			android:onClick="onImageHumanLifeListClick"
-			android:text="@string/button_image_list" android:background="@drawable/btn_ellow"/>
-
-		<Button
-			android:layout_width="320dp"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="10dip"
-			android:layout_marginRight="10dip"
-            android:id="@+id/item2"
-			android:onClick="WeakClick"
-			android:text="@string/button_image_grid" android:background="@drawable/btn_blue"
-            android:layout_marginTop="10dip"/>
-
-		<Button
-			android:layout_width="320dp"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="10dip"
-			android:layout_marginRight="10dip"
-            android:id="@+id/item3"
-			android:onClick="PersonageClick"
-			android:text="@string/button_image_pager" android:background="@drawable/btn_red"
-            android:layout_marginTop="10dip"/>
-
-		<Button
-			android:layout_width="320dp"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="10dip"
-			android:layout_marginRight="10dip"
-            android:id="@+id/item4"
-			android:onClick="ParcheddryClick"
-			android:text="@string/button_image_gallery"
-			android:background="@drawable/btn_purple" android:layout_marginTop="10dip"/>
-
-	</LinearLayout>
-
-</ScrollView>
+</LinearLayout>

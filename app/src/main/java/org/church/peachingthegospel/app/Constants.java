@@ -19,19 +19,17 @@ package org.church.peachingthegospel.app;
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
  */
 public final class Constants {
-    public static String HostName="http://cloudap.coretronic.com/excelsparser/images/";
+        public static String HostName="http://cloudap.coretronic.com/excelsparser/images/";
+        public static String DIR_HUMANLIFE_TW = "humanlife(tw)/";
+        public static String DIR_PERSONAGE_EN = "personage(en)/";
+        public static String DIR_PERSONAGE_TW = "personage(tw)/";
 
-    public static String DIR_HUMANLIFE_TW = "humanlife(tw)/";
-    public static String DIR_PERSONAGE_EN = "personage(en)/";
-    public static String DIR_PERSONAGE_TW = "personage(tw)/";
-
-
-    public static final String [] TEST=new String[]{
+        public static final String [] TEST=new String[]{
             "drawable://" + R.drawable.tw,
             "drawable://" + R.drawable.en,
             "drawable://" + R.drawable.jp,
             "drawable://" + R.drawable.rus
-    };
+        };
 
         public static final String [] TEST1=new String[]{
                 "drawable://" + R.drawable.tw,
@@ -40,24 +38,25 @@ public final class Constants {
                 "drawable://" + R.drawable.jp,
                 "drawable://" + R.drawable.rus
         };
-public static final String[] WEAK_EN= new String[]{
-        "drawable://" + R.drawable.img_2996,
-        "drawable://" + R.drawable.img_2997,
-        "drawable://" + R.drawable.img_2998,
-        "drawable://" + R.drawable.img_2999,
-        "drawable://" + R.drawable.img_3001,
-        "drawable://" + R.drawable.img_3002,
-        "drawable://" + R.drawable.img_3003,
-        "drawable://" + R.drawable.img_3004,
-        "drawable://" + R.drawable.img_3005,
-        "drawable://" + R.drawable.img_3006,
-        "drawable://" + R.drawable.img_3007,
-        "drawable://" + R.drawable.img_3008,
-        "drawable://" + R.drawable.img_3009,
-        "drawable://" + R.drawable.img_3011,
-        "drawable://" + R.drawable.img_3012,
-        "drawable://" + R.drawable.img_3013,
-};
+
+        public static final String[] WEAK_EN= new String[]{
+                "drawable://" + R.drawable.img_2996,
+                "drawable://" + R.drawable.img_2997,
+                "drawable://" + R.drawable.img_2998,
+                "drawable://" + R.drawable.img_2999,
+                "drawable://" + R.drawable.img_3001,
+                "drawable://" + R.drawable.img_3002,
+                "drawable://" + R.drawable.img_3003,
+                "drawable://" + R.drawable.img_3004,
+                "drawable://" + R.drawable.img_3005,
+                "drawable://" + R.drawable.img_3006,
+                "drawable://" + R.drawable.img_3007,
+                "drawable://" + R.drawable.img_3008,
+                "drawable://" + R.drawable.img_3009,
+                "drawable://" + R.drawable.img_3011,
+                "drawable://" + R.drawable.img_3012,
+                "drawable://" + R.drawable.img_3013,
+        };
 
         public static final String[] WEAK_TW_FEMALE= new String[]{
                 "drawable://" + R.drawable.img_2903,
@@ -100,7 +99,7 @@ public static final String[] WEAK_EN= new String[]{
         };
 
 
-    public static final String[] HUMANLIFE_TW_IMAGES =new String[]{
+        public static final String[] HUMANLIFE_TW_IMAGES =new String[]{
             HostName + DIR_HUMANLIFE_TW + "IMG_2858.JPG",
             HostName + DIR_HUMANLIFE_TW + "IMG_2859.JPG",
             HostName + DIR_HUMANLIFE_TW + "IMG_2860.JPG",
@@ -111,9 +110,9 @@ public static final String[] WEAK_EN= new String[]{
             HostName + DIR_HUMANLIFE_TW + "IMG_2865.JPG",
             HostName + DIR_HUMANLIFE_TW + "IMG_2866.JPG",
             HostName + DIR_HUMANLIFE_TW + "IMG_2867.JPG",
-    };
+        };
 
-    public static final String[] PERSONAGE_EN =new String[]{
+        public static final String[] PERSONAGE_EN =new String[]{
             HostName + DIR_PERSONAGE_EN + "IMG_2881.JPG",
             HostName + DIR_PERSONAGE_EN + "IMG_2882.JPG",
             HostName + DIR_PERSONAGE_EN + "IMG_2883.JPG",
@@ -127,11 +126,11 @@ public static final String[] WEAK_EN= new String[]{
             HostName + DIR_PERSONAGE_EN + "IMG_2891.JPG",
             HostName + DIR_PERSONAGE_EN + "IMG_2892.JPG",
             HostName + DIR_PERSONAGE_EN + "IMG_2893.JPG",
-    };
+        };
 
 
 
-	public static final String[] PERSONAGE_TW = new String[] {
+        public static final String[] PERSONAGE_TW = new String[] {
             HostName + DIR_PERSONAGE_TW + "IMG_2868.JPG",
             HostName + DIR_PERSONAGE_TW + "IMG_2869.JPG",
             HostName + DIR_PERSONAGE_TW + "IMG_2870.JPG",
@@ -145,7 +144,7 @@ public static final String[] WEAK_EN= new String[]{
             HostName + DIR_PERSONAGE_TW + "IMG_2878.JPG",
             HostName + DIR_PERSONAGE_TW + "IMG_2879.JPG",
             HostName + DIR_PERSONAGE_TW + "IMG_2880.JPG",
-	};
+        };
 
 
         public static final String[] PARCHEDDRY_RUS= new String[]{
@@ -220,15 +219,15 @@ public static final String[] WEAK_EN= new String[]{
                 "drawable://" + R.drawable.img_2965,
                 "drawable://" + R.drawable.img_2966,
         };
-	private Constants() {
-	}
 
-	public static class Config {
-		public static final boolean DEVELOPER_MODE = false;
-	}
-	
-	public static class Extra {
-		public static final String FRAGMENT_INDEX = "com.nostra13.example.universalimageloader.FRAGMENT_INDEX";
-		public static final String IMAGE_POSITION = "com.nostra13.example.universalimageloader.IMAGE_POSITION";
-	}
+        private Constants() {}
+
+        public static class Config {
+                public static final boolean DEVELOPER_MODE = false;
+        }
+
+        public static class Extra {
+                public static final String FRAGMENT_INDEX = "com.nostra13.example.universalimageloader.FRAGMENT_INDEX";
+                public static final String IMAGE_POSITION = "com.nostra13.example.universalimageloader.IMAGE_POSITION";
+        }
 }
