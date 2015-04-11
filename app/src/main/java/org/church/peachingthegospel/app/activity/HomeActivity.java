@@ -89,7 +89,6 @@ public class HomeActivity extends ActionBarActivity {
 		intent.putExtra("title", "人生的奧祕");
         String[] imageUrls  = new String[]{
 				"drawable://" + R.drawable.tw
-
 		};
 		String contextType="HumanLife";
 		String[] titles ={"中文"};
