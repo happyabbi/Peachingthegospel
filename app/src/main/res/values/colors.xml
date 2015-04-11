@@ -62,6 +62,11 @@
     <color name="bthumbnail_font">#7e7e7e</color>
     <color name="text_color">#222222</color>
 
+    <color name="primary">#8BC34A</color>
+    <color name="primary_dark">#689F38</color>
+    <color name="accent">#222222</color>
+    <color name="colorBackground">#F1F8E9</color>
+
     <dimen name="tool_bar_text_size">22sp</dimen>
     <dimen name="main_screen_side_padding">10dp</dimen>
     <dimen name="text_top_padding">25dp</dimen>

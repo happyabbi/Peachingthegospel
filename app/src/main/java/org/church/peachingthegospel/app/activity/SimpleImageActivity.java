@@ -18,6 +18,7 @@ package org.church.peachingthegospel.app.activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 import org.church.peachingthegospel.app.Constants;
 import org.church.peachingthegospel.app.fragment.ImageGalleryFragment;
 import org.church.peachingthegospel.app.fragment.ImageListFragment;
@@ -29,7 +30,7 @@ import org.church.peachingthegospel.app.R;
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
  */
 
-public class SimpleImageActivity extends FragmentActivity {
+public class SimpleImageActivity extends ActionBarActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

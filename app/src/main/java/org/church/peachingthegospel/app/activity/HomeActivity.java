@@ -17,6 +17,7 @@ package org.church.peachingthegospel.app.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,7 +40,7 @@ import java.util.List;
 /**
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
  */
-public class HomeActivity extends Activity {
+public class HomeActivity extends ActionBarActivity {
 
 	private static final String TEST_FILE_NAME = "Universal Image Loader @#&=+-_.,!()~'%20.png";
 	private HomeListViewAdapter homeListViewAdapter;
@@ -137,7 +138,6 @@ public class HomeActivity extends Activity {
 		};
 		intent.putExtra("title","軟弱人的需要");
 		String contextType="Weak";
-//		String[] titles ={"中文(男生版)","中文(女生版)","英文","日文","俄文"};
 		String[] titles ={"中文(男生版)","中文(女生版)","英文"};
 		intent.putExtra("images",imageUrls);
 		intent.putExtra("titles",titles);
