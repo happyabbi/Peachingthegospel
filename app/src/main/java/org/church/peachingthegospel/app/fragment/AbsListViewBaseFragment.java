@@ -45,13 +45,13 @@ public abstract class AbsListViewBaseFragment extends BaseFragment {
 
 	@Override
 	public void onPrepareOptionsMenu(Menu menu) {
-		MenuItem pauseOnScrollItem = menu.findItem(R.id.item_pause_on_scroll);
-		pauseOnScrollItem.setVisible(true);
-		pauseOnScrollItem.setChecked(pauseOnScroll);
-
-		MenuItem pauseOnFlingItem = menu.findItem(R.id.item_pause_on_fling);
-		pauseOnFlingItem.setVisible(true);
-		pauseOnFlingItem.setChecked(pauseOnFling);
+//		MenuItem pauseOnScrollItem = menu.findItem(R.id.item_pause_on_scroll);
+//		pauseOnScrollItem.setVisible(true);
+//		pauseOnScrollItem.setChecked(pauseOnScroll);
+//
+//		MenuItem pauseOnFlingItem = menu.findItem(R.id.item_pause_on_fling);
+//		pauseOnFlingItem.setVisible(true);
+//		pauseOnFlingItem.setChecked(pauseOnFling);
 	}
 
 	@Override

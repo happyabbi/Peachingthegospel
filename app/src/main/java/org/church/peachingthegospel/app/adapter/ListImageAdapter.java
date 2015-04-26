@@ -16,6 +16,7 @@ import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import org.church.peachingthegospel.app.R;
+import org.church.peachingthegospel.app.model.ListImageModel1;
 import org.church.peachingthegospel.app.util.ViewHolder;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -27,15 +28,13 @@ import java.util.List;
 public class ListImageAdapter extends BaseAdapter {
     private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
     private Context context;
-    private String[] imageUrls;
-    private String[] titles;
-    DisplayImageOptions options;
+    private List<ListImageModel1> listImageModel1;
+    private DisplayImageOptions options;
+    private ImageLoader imageLoader = ImageLoader.getInstance();
 
-    ImageLoader imageLoader = ImageLoader.getInstance();
-    public ListImageAdapter(Context context, String[] imageUrls,String[] titles) {
+    public ListImageAdapter(Context context, List<ListImageModel1> listImageModel1) {
         this.context= context;
-        this.imageUrls=imageUrls;
-        this.titles=titles;
+        this.listImageModel1 = listImageModel1;
         options = new DisplayImageOptions.Builder()
                 .showImageOnLoading(R.drawable.ic_stub)
                 .showImageForEmptyUri(R.drawable.ic_empty)
@@ -49,7 +48,7 @@ public class ListImageAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return imageUrls.length;
+        return listImageModel1.size();
     }
 
     @Override
@@ -69,13 +68,13 @@ public class ListImageAdapter extends BaseAdapter {
         }
         TextView text = ViewHolder.get(convertView, R.id.text);
         ImageView image = ViewHolder.get(convertView,R.id.image);
-        text.setText(titles[position]);
+        text.setText(listImageModel1.get(position).getTitle());
 
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context)
                 .defaultDisplayImageOptions(options)
                 .build();
         imageLoader.init(config);
-        imageLoader.displayImage(imageUrls[position], image, options, animateFirstListener);
+        imageLoader.displayImage(listImageModel1.get(position).getImageUrl(), image, options, animateFirstListener);
         return convertView;
     }
 
@@ -94,5 +93,3 @@ public class ListImageAdapter extends BaseAdapter {
         }
     }
 }
-
-

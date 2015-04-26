@@ -40,6 +40,7 @@ public class SimpleImageActivity extends ActionBarActivity {
 		switch (item.getItemId())
 		{
 			case android.R.id.home:
+				this.finish();
 //				Intent intent = new Intent(this, HomeActivity.class);
 //				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //				startActivity(intent);
@@ -60,7 +61,6 @@ public class SimpleImageActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 
 		int frIndex = getIntent().getIntExtra(Constants.Extra.FRAGMENT_INDEX, 0);
-
 		String title = getIntent().getStringExtra(titleKey);
 
         String[] imageUrls = getIntent().getStringArrayExtra(imageKey);
@@ -81,9 +81,10 @@ public class SimpleImageActivity extends ActionBarActivity {
 				if (fr == null) {
 					fr = new ImageListFragment();
 					((ImageListFragment)fr).setImageUrls(imageUrls);
-					((ImageListFragment)fr).setTitles(titles);
+
 					((ImageListFragment)fr).setContextType(contextType);
 				}
+				((ImageListFragment)fr).setTitles(titles);
 				actionbar.show();
 				break;
 			case ImageGridFragment.INDEX:
@@ -118,6 +119,6 @@ public class SimpleImageActivity extends ActionBarActivity {
 
 		setTitle(title);
 		android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-		fragmentTransaction.add(android.R.id.content,fr,tag).commit();
+		fragmentTransaction.replace(android.R.id.content, fr, tag).commit();
 	}
 }

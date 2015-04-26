@@ -31,6 +31,10 @@ import org.church.peachingthegospel.app.Constants;
 import org.church.peachingthegospel.app.activity.SimpleImageActivity;
 import org.church.peachingthegospel.app.adapter.ListImageAdapter;
 import org.church.peachingthegospel.app.R;
+import org.church.peachingthegospel.app.model.ListImageModel1;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
 
@@ -39,6 +43,10 @@ import org.church.peachingthegospel.app.R;
 public class ImageListFragment extends AbsListViewBaseFragment {
 
 	public static final int INDEX = 0;
+
+
+	private List<ListImageModel1> listImageModel1;
+
 	String[] imageUrls = Constants.HUMANLIFE_TW_IMAGES;
 
 	public String[] getTitles() {
@@ -59,7 +67,7 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 
 	String contextType="";
 
-	String[] titles=null;
+	String[] titles = null;
 	DisplayImageOptions options;
 
 	@Override
@@ -75,118 +83,141 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 				.considerExifParams(true)
 				.displayer(new RoundedBitmapDisplayer(20))
 				.build();
+		listImageModel1 = new ArrayList<>();
+	}
+
+	private void setAdapter(){
+		int i = 0;
+		for(String s :imageUrls){
+			listImageModel1.add(new ListImageModel1(s,titles[i]));
+			i++;
+		}
+
+		listView.setAdapter(new ListImageAdapter(getActivity(), listImageModel1));
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				if (getContextType().equals("HumanLife")) { //人生的奧祕
+					if (getTitles()[position].equals("中文")) {
+						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
+						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						intent.putExtra("title", "中文");
+						String[] imageUrls = Constants.HUMANLIFE_TW_IMAGES;
+						intent.putExtra("images", imageUrls);
+						startActivity(intent);
+					} else if (getTitles()[position].equals("English")) {
+
+					} else if (getTitles()[position].equals("日本語")) {
+
+					} else if (getTitles()[position].equals("Russkiy Yazyk")) {
+
+					}
+				} else if (getContextType().equals("Personage")) { //上流人的需要
+					if (getTitles()[position].equals("中文")) {
+						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
+						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						intent.putExtra("title", "中文");
+
+						String[] imageUrls = Constants.PERSONAGE_TW;
+						intent.putExtra("images", imageUrls);
+						startActivity(intent);
+					} else if (getTitles()[position].equals("English")) {
+						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
+						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						intent.putExtra("title", "English");
+
+						String[] imageUrls = Constants.PERSONAGE_EN;
+						intent.putExtra("images", imageUrls);
+						startActivity(intent);
+					} else if (getTitles()[position].equals("日本語")) {
+
+					} else if (getTitles()[position].equals("Russkiy Yazyk")) {
+
+					}
+				} else if (getContextType().equals("Weak")) { //軟弱人的需要
+					if (getTitles()[position].equals("中文(男生版)")) {
+						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
+						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						intent.putExtra("title", "中文(男生版)");
+
+						String[] imageUrls = Constants.WEAK_TW_FEMALE;
+						intent.putExtra("images", imageUrls);
+						startActivity(intent);
+					}
+					if (getTitles()[position].equals("中文(女生版)")) {
+						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
+						intent.putExtra("title", "中文(女生版)");
+						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						String[] imageUrls = Constants.WEAK_TW_MALE;
+						intent.putExtra("images", imageUrls);
+						startActivity(intent);
+					} else if (getTitles()[position].equals("English")) {
+						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
+						intent.putExtra("title", "English");
+						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						String[] imageUrls = Constants.WEAK_EN;
+						intent.putExtra("images", imageUrls);
+						startActivity(intent);
+					} else if (getTitles()[position].equals("日本語")) {
+
+					} else if (getTitles()[position].equals("Russkiy Yazyk")) {
+
+					}
+				} else if (getContextType().equals("Parcheddry")) { //乾渴的婦人
+					if (getTitles()[position].equals("中文")) {
+						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
+						intent.putExtra("title", "中文");
+						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						String[] imageUrls = Constants.PARCHEDDRY_TW;
+						intent.putExtra("images", imageUrls);
+						startActivity(intent);
+					} else if (getTitles()[position].equals("English")) {
+						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
+						intent.putExtra("title", "English");
+						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						String[] imageUrls = Constants.PARCHEDDRY_EN;
+						intent.putExtra("images", imageUrls);
+						startActivity(intent);
+					} else if (getTitles()[position].equals("日本語")) {
+						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
+						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						intent.putExtra("title", "日本語");
+						String[] imageUrls = Constants.PARCHEDDRY_JP;
+						intent.putExtra("images", imageUrls);
+						startActivity(intent);
+					} else if (getTitles()[position].equals("Russkiy Yazyk")) {
+						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
+						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						intent.putExtra("title", "Russkiy Yazyk");
+
+						String[] imageUrls = Constants.PARCHEDDRY_RUS;
+						intent.putExtra("images", imageUrls);
+						startActivity(intent);
+					}
+				}
+			}
+		});
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+ 
+	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+
+		listView = (ListView) getActivity().findViewById(android.R.id.list);
+		setAdapter();
+
 	}
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fr_image_list, container, false);
-		listView = (ListView) rootView.findViewById(android.R.id.list);
-		listView.setAdapter(new ListImageAdapter(getActivity(), imageUrls,titles));
-		listView.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				if (getContextType().equals("HumanLife")){ //人生的奧祕
-					if(getTitles()[position].equals("中文")){
-						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
-						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
-						intent.putExtra("title", "中文");
-						String[] imageUrls = Constants.HUMANLIFE_TW_IMAGES;
-						intent.putExtra("images",imageUrls);
-						startActivity(intent);
-					}else if(getTitles()[position].equals("英文")){
-
-					}else if(getTitles()[position].equals("日文")){
-
-					}else if(getTitles()[position].equals("俄文")) {
-
-					}
-				}else if (getContextType().equals("Personage")){ //上流人的需要
-					if(getTitles()[position].equals("中文")){
-						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
-						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
-						intent.putExtra("title", "中文");
-
-						String[] imageUrls = Constants.PERSONAGE_TW;
-						intent.putExtra("images",imageUrls);
-						startActivity(intent);
-					}else if(getTitles()[position].equals("英文")){
-						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
-						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
-						intent.putExtra("title", "英文");
-
-						String[] imageUrls = Constants.PERSONAGE_EN;
-						intent.putExtra("images",imageUrls);
-						startActivity(intent);
-					}else if(getTitles()[position].equals("日文")){
-
-					}else if(getTitles()[position].equals("俄文")) {
-
-					}
-				}else if (getContextType().equals("Weak")) { //軟弱人的需要
-					if(getTitles()[position].equals("中文(男生版)")){
-						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
-						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
-						intent.putExtra("title", "中文(男生版)");
-
-						String[] imageUrls = Constants.WEAK_TW_FEMALE;
-						intent.putExtra("images",imageUrls);
-						startActivity(intent);
-					}if(getTitles()[position].equals("中文(女生版)")){
-						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
-						intent.putExtra("title", "中文(女生版)");
-						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
-						String[] imageUrls = Constants.WEAK_TW_MALE;
-						intent.putExtra("images",imageUrls);
-						startActivity(intent);
-					}else if(getTitles()[position].equals("英文")){
-						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
-						intent.putExtra("title", "英文");
-						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
-						String[] imageUrls = Constants.WEAK_EN;
-						intent.putExtra("images",imageUrls);
-						startActivity(intent);
-					}else if(getTitles()[position].equals("日文")){
-
-					}else if(getTitles()[position].equals("俄文")) {
-
-					}
-				}else if (getContextType().equals("Parcheddry")){ //乾渴的婦人
-					if(getTitles()[position].equals("中文")){
-						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
-						intent.putExtra("title", "中文");
-						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
-						String[] imageUrls = Constants.PARCHEDDRY_TW;
-						intent.putExtra("images",imageUrls);
-						startActivity(intent);
-					}else if(getTitles()[position].equals("英文")){
-						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
-						intent.putExtra("title", "英文");
-						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
-						String[] imageUrls = Constants.PARCHEDDRY_EN;
-						intent.putExtra("images",imageUrls);
-						startActivity(intent);
-					}else if(getTitles()[position].equals("日文")){
-						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
-						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
-						intent.putExtra("title", "日文");
-						String[] imageUrls = Constants.PARCHEDDRY_JP;
-						intent.putExtra("images",imageUrls);
-						startActivity(intent);
-					}else if(getTitles()[position].equals("俄文")) {
-						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
-						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
-						intent.putExtra("title", "俄文");
-
-						String[] imageUrls = Constants.PARCHEDDRY_RUS;
-						intent.putExtra("images",imageUrls);
-						startActivity(intent);
-					}
-				}
-//				startImagePagerActivity(position);
-
-			}
-		});
 		return rootView;
 	}
 

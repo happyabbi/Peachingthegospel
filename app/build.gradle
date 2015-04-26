@@ -18,10 +18,11 @@ android {
 
     defaultConfig {
         applicationId "org.church.peachingthegospel.app"
-        minSdkVersion 9
+        minSdkVersion 11
         targetSdkVersion 21
-        versionCode 1
-        versionName "1.0"
+        apply plugin: 'announce'
+        versionCode 3
+        versionName "1.2"
     }
     buildTypes {
         release {

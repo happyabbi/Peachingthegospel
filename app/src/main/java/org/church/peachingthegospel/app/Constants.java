@@ -24,6 +24,8 @@ public final class Constants {
         public static String DIR_PERSONAGE_EN = "personage(en)/";
         public static String DIR_PERSONAGE_TW = "personage(tw)/";
 
+        public static String ACTIONBAR_STATUS="";
+
         public static final String [] TEST=new String[]{
             "drawable://" + R.drawable.tw,
             "drawable://" + R.drawable.en,

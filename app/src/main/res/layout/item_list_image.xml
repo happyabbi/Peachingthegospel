@@ -19,5 +19,4 @@
 		android:layout_gravity="start|center_vertical"
 		android:layout_marginLeft="20dip"
 		android:textSize="22sp" />
-
 </LinearLayout>
