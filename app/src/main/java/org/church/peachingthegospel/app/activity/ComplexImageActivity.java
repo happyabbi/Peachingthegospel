@@ -21,6 +21,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+
 import org.church.peachingthegospel.app.R;
 import org.church.peachingthegospel.app.fragment.ImageGridFragment;
 import org.church.peachingthegospel.app.fragment.ImageListFragment;
@@ -44,6 +45,7 @@ public class ComplexImageActivity extends FragmentActivity {
 		pager = (ViewPager) findViewById(R.id.pager);
 		pager.setAdapter(new ImagePagerAdapter(getSupportFragmentManager()));
 		pager.setCurrentItem(pagerPosition);
+
 	}
 
 	@Override

@@ -16,57 +16,64 @@
 package org.church.peachingthegospel.app.home;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.utils.L;
+import com.squareup.picasso.Picasso;
 import org.church.peachingthegospel.app.Constants;
+import org.church.peachingthegospel.app.InjectableActivity;
 import org.church.peachingthegospel.app.R;
 import org.church.peachingthegospel.app.activity.SimpleImageActivity;
 import org.church.peachingthegospel.app.home.adapter.HomeListViewAdapter;
 import org.church.peachingthegospel.app.home.datamodule.HomeListViewItem;
 import org.church.peachingthegospel.app.fragment.ImageListFragment;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 /**
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
  */
-public class HomeActivity extends ActionBarActivity {
+public class HomeActivity extends InjectableActivity {
 
 	private static final String TEST_FILE_NAME = "Universal Image Loader @#&=+-_.,!()~'%20.png";
 	private HomeListViewAdapter homeListViewAdapter;
 	private List<HomeListViewItem> homeListViewItemList;
-	private ListView listView;
+
+	@Inject
+	protected Picasso picasso;
+
+	@InjectView(R.id.ac_home_listview)
+	protected ListView listView;
+
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	public int getLayoutResource() {
+		return R.layout.ac_home;
+	}
+
+	@Override
+	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.ac_home);
-		File testImageOnSdCard = new File("/mnt/sdcard", TEST_FILE_NAME);
-		if (!testImageOnSdCard.exists()) {
-			copyTestImageToSdCard(testImageOnSdCard);
-		}
+		ButterKnife.inject(this);
+
 		homeListViewItemList=new ArrayList<HomeListViewItem>();
 		homeListViewItemList.add(new HomeListViewItem(R.drawable.img_2858,"人生的奧祕"));
 		homeListViewItemList.add(new HomeListViewItem(R.drawable.img_2903,"軟弱人的需要"));
 		homeListViewItemList.add(new HomeListViewItem(R.drawable.img_2868,"上流人的需要"));
 		homeListViewItemList.add(new HomeListViewItem(R.drawable.img_2937,"乾渴婦人的需要"));
-		homeListViewAdapter=new HomeListViewAdapter(this,homeListViewItemList);
-		listView= (ListView)findViewById(R.id.ac_home_listview);
+		homeListViewAdapter=new HomeListViewAdapter(this,homeListViewItemList,picasso);
 		listView.setAdapter(homeListViewAdapter);
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Constants.ACTIONBAR_STATUS = "Home";
-				switch (position){
+				switch (position) {
 					case 0:
 						onImageHumanLifeListClick(view);
 						break;
@@ -89,11 +96,11 @@ public class HomeActivity extends ActionBarActivity {
 		intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageListFragment.INDEX);
 		intent.putExtra("title", "人生的奧祕");
         String[] imageUrls  = new String[]{
-				"drawable://" + R.drawable.tw
+				"https://lh3.googleusercontent.com/qyoEWCHnWM9otAz8U_xn_l-ndfzKH4LTTMCXzyzQCho=w222-h220-no"
 		};
 		String contextType="HumanLife";
 		String[] titles ={"中文"};
-        intent.putExtra("images",imageUrls);
+        intent.putExtra("images", imageUrls);
 		intent.putExtra("titles",titles);
 		intent.putExtra("contextType", contextType);
 		startActivity(intent);
@@ -116,8 +123,8 @@ public class HomeActivity extends ActionBarActivity {
 		Intent intent = new Intent(this, SimpleImageActivity.class);
 		intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageListFragment.INDEX);
 		String[] imageUrls = new String[]{
-				"drawable://" + R.drawable.tw,
-				"drawable://" + R.drawable.en,
+				"https://lh3.googleusercontent.com/qyoEWCHnWM9otAz8U_xn_l-ndfzKH4LTTMCXzyzQCho=w222-h220-no",
+				"https://lh3.googleusercontent.com/BdFtUCzvu2isjXxZnTRtP0ORDbkhZAqlCa3ddwDKQoU=w208-h243-no",
 		};
 		intent.putExtra("title","上流人的需要");
 		String contextType="Personage";
@@ -132,9 +139,9 @@ public class HomeActivity extends ActionBarActivity {
 		Intent intent = new Intent(this, SimpleImageActivity.class);
 		intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageListFragment.INDEX);
 		String[] imageUrls = new String[]{
-				"drawable://" + R.drawable.tw,
-				"drawable://" + R.drawable.tw,
-				"drawable://" + R.drawable.en,
+				"https://lh3.googleusercontent.com/qyoEWCHnWM9otAz8U_xn_l-ndfzKH4LTTMCXzyzQCho=w222-h220-no",
+				"https://lh3.googleusercontent.com/qyoEWCHnWM9otAz8U_xn_l-ndfzKH4LTTMCXzyzQCho=w222-h220-no",
+				"https://lh3.googleusercontent.com/BdFtUCzvu2isjXxZnTRtP0ORDbkhZAqlCa3ddwDKQoU=w208-h243-no",
 		};
 		intent.putExtra("title","軟弱人的需要");
 		String contextType="Weak";
@@ -145,10 +152,8 @@ public class HomeActivity extends ActionBarActivity {
 		startActivity(intent);
 	}
 
-
 	@Override
 	public void onBackPressed() {
-		ImageLoader.getInstance().stop();
 		super.onBackPressed();
 	}
 
@@ -156,44 +161,5 @@ public class HomeActivity extends ActionBarActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		//getMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-			case R.id.item_clear_memory_cache:
-				ImageLoader.getInstance().clearMemoryCache();
-				return true;
-			case R.id.item_clear_disc_cache:
-				ImageLoader.getInstance().clearDiskCache();
-				return true;
-			default:
-				return false;
-		}
-	}
-
-	private void copyTestImageToSdCard(final File testImageOnSdCard) {
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					InputStream is = getAssets().open(TEST_FILE_NAME);
-					FileOutputStream fos = new FileOutputStream(testImageOnSdCard);
-					byte[] buffer = new byte[8192];
-					int read;
-					try {
-						while ((read = is.read(buffer)) != -1) {
-							fos.write(buffer, 0, read);
-						}
-					} finally {
-						fos.flush();
-						fos.close();
-						is.close();
-					}
-				} catch (IOException e) {
-					L.w("Can't copy test image onto SD card");
-				}
-			}
-		}).start();
 	}
 }

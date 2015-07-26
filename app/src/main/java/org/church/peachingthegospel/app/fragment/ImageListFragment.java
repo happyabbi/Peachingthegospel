@@ -25,13 +25,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.squareup.picasso.Picasso;
 import org.church.peachingthegospel.app.Constants;
 import org.church.peachingthegospel.app.activity.SimpleImageActivity;
 import org.church.peachingthegospel.app.adapter.ListImageAdapter;
 import org.church.peachingthegospel.app.R;
-import org.church.peachingthegospel.app.model.ListImageModel1;
+import org.church.peachingthegospel.app.model.ListImageModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +43,7 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 
 	public static final int INDEX = 0;
 
-
-	private List<ListImageModel1> listImageModel1;
+	private List<ListImageModel> listImageModel;
 
 	String[] imageUrls = Constants.HUMANLIFE_TW_IMAGES;
 
@@ -68,32 +66,38 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 	String contextType="";
 
 	String[] titles = null;
-	DisplayImageOptions options;
+
+
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putStringArray("imageUrls", imageUrls);
+		outState.putString("contextType",contextType);
+		outState.putStringArray("titles",titles);
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		listImageModel = new ArrayList<>();
 
-		options = new DisplayImageOptions.Builder()
-				.showImageOnLoading(R.drawable.ic_stub)
-				.showImageForEmptyUri(R.drawable.ic_empty)
-				.showImageOnFail(R.drawable.ic_error)
-				.cacheInMemory(true)
-				.cacheOnDisk(true)
-				.considerExifParams(true)
-				.displayer(new RoundedBitmapDisplayer(20))
-				.build();
-		listImageModel1 = new ArrayList<>();
+		if (savedInstanceState != null) {
+			imageUrls = savedInstanceState.getStringArray("imageUrls");
+			contextType = savedInstanceState.getString("contextType");
+			titles = savedInstanceState.getStringArray("titles");
+		}
 	}
 
 	private void setAdapter(){
 		int i = 0;
 		for(String s :imageUrls){
-			listImageModel1.add(new ListImageModel1(s,titles[i]));
+			listImageModel.add(new ListImageModel(s,titles[i]));
 			i++;
 		}
 
-		listView.setAdapter(new ListImageAdapter(getActivity(), listImageModel1));
+		Picasso picasso = ((SimpleImageActivity)this.getActivity()).picasso;
+		listView.setAdapter(new ListImageAdapter(getActivity(), listImageModel,picasso));
+
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -224,7 +228,6 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		ListImageAdapter.AnimateFirstDisplayListener.displayedImages.clear();
 	}
 
 	public String[] getImageUrls() {
@@ -234,4 +237,6 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 	public void setImageUrls(String[] imageUrls) {
 		this.imageUrls = imageUrls;
 	}
+
+
 }

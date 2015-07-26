@@ -19,8 +19,6 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AbsListView;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;
 import org.church.peachingthegospel.app.*;
 import org.church.peachingthegospel.app.activity.SimpleImageActivity;
 
@@ -40,7 +38,7 @@ public abstract class AbsListViewBaseFragment extends BaseFragment {
 	@Override
 	public void onResume() {
 		super.onResume();
-		applyScrollListener();
+		//applyScrollListener();
 	}
 
 	@Override
@@ -60,12 +58,12 @@ public abstract class AbsListViewBaseFragment extends BaseFragment {
 			case R.id.item_pause_on_scroll:
 				pauseOnScroll = !pauseOnScroll;
 				item.setChecked(pauseOnScroll);
-				applyScrollListener();
+				//applyScrollListener();
 				return true;
 			case R.id.item_pause_on_fling:
 				pauseOnFling = !pauseOnFling;
 				item.setChecked(pauseOnFling);
-				applyScrollListener();
+			//	applyScrollListener();
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);
@@ -84,9 +82,5 @@ public abstract class AbsListViewBaseFragment extends BaseFragment {
 		intent.putExtra(Constants.Extra.IMAGE_POSITION, position);
         intent.putExtra("images",images);
 		startActivity(intent);
-	}
-
-	private void applyScrollListener() {
-		listView.setOnScrollListener(new PauseOnScrollListener(ImageLoader.getInstance(), pauseOnScroll, pauseOnFling));
 	}
 }

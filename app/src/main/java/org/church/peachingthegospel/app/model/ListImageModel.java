@@ -3,11 +3,11 @@ package org.church.peachingthegospel.app.model;
 /**
  * Created by abraham.chen on 2015/4/18.
  */
-public class ListImageModel1 {
+public class ListImageModel {
     String imageUrl;
     String title;
 
-    public ListImageModel1(String imageUrl, String title){
+    public ListImageModel(String imageUrl, String title){
         setImageUrl(imageUrl);
         setTitle(title);
     }

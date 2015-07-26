@@ -14,25 +14,31 @@
  * limitations under the License.
  *******************************************************************************/
 package org.church.peachingthegospel.app.activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.MenuItem;
+
+import com.squareup.picasso.Picasso;
+
 import org.church.peachingthegospel.app.Constants;
-import org.church.peachingthegospel.app.fragment.ImageGalleryFragment;
+import org.church.peachingthegospel.app.InjectableActivity;
 import org.church.peachingthegospel.app.fragment.ImageListFragment;
 import org.church.peachingthegospel.app.fragment.ImagePagerFragment;
 import org.church.peachingthegospel.app.fragment.ImageGridFragment;
+
+import javax.inject.Inject;
 
 /**
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
  */
 
-public class SimpleImageActivity extends ActionBarActivity {
+public class SimpleImageActivity extends InjectableActivity {
 	android.support.v7.app.ActionBar actionbar;
+
+	@Inject
+	public Picasso picasso;
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
@@ -41,10 +47,6 @@ public class SimpleImageActivity extends ActionBarActivity {
 		{
 			case android.R.id.home:
 				this.finish();
-//				Intent intent = new Intent(this, HomeActivity.class);
-//				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//				startActivity(intent);
-//				getSupportFragmentManager().popBackStack();
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);
@@ -57,15 +59,51 @@ public class SimpleImageActivity extends ActionBarActivity {
 	String contextTypeKey = "contextType";
 
 	@Override
+	public int getLayoutResource() {
+		return android.R.layout.simple_list_item_1;
+	}
+
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+
+		outState.putInt("frIndex", frIndex);
+		outState.putString("title",title);
+		outState.putStringArray("imageUrls", imageUrls);
+		outState.putStringArray("titles",titles);
+		outState.putString("contextType",contextType);
+	}
+
+	int frIndex;
+	String title;
+	String[] imageUrls;
+	String[] titles;
+	String contextType;
+
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		int frIndex = getIntent().getIntExtra(Constants.Extra.FRAGMENT_INDEX, 0);
-		String title = getIntent().getStringExtra(titleKey);
 
-        String[] imageUrls = getIntent().getStringArrayExtra(imageKey);
-		String[] titles = getIntent().getStringArrayExtra(titlesKey);
-		String contextType = getIntent().getStringExtra(contextTypeKey);
+		if (savedInstanceState != null) {
+			frIndex = savedInstanceState.getInt("frIndex");
+			title = savedInstanceState.getString("title");
+			imageUrls = savedInstanceState.getStringArray("imageUrls");
+			titles = savedInstanceState.getStringArray("titles");
+			contextType = savedInstanceState.getString("contextType");
+			Log.e("SimpleImageActivity","savedInstanceState != null");
+		} else{
+			Log.e("SimpleImageActivity","savedInstanceState == null");
+			frIndex = getIntent().getIntExtra(Constants.Extra.FRAGMENT_INDEX, 0);
+			title = getIntent().getStringExtra(titleKey);
+			imageUrls = getIntent().getStringArrayExtra(imageKey);
+			titles = getIntent().getStringArrayExtra(titlesKey);
+			contextType = getIntent().getStringExtra(contextTypeKey);
+		}
+
+
+
 
  		Fragment fr;
 		String tag;
@@ -81,7 +119,6 @@ public class SimpleImageActivity extends ActionBarActivity {
 				if (fr == null) {
 					fr = new ImageListFragment();
 					((ImageListFragment)fr).setImageUrls(imageUrls);
-
 					((ImageListFragment)fr).setContextType(contextType);
 				}
 				((ImageListFragment)fr).setTitles(titles);
@@ -102,19 +139,13 @@ public class SimpleImageActivity extends ActionBarActivity {
 				if (fr == null) {
 					fr = new ImagePagerFragment();
 					((ImagePagerFragment)fr).setImageUrls(imageUrls);
+
 					fr.setArguments(getIntent().getExtras());
+
 				}
 				actionbar.hide();
 				break;
-			case ImageGalleryFragment.INDEX:
-				tag = ImageGalleryFragment.class.getSimpleName();
-				fr = fragmentManager.findFragmentByTag(tag);
 
-				if (fr == null) {
-					fr = new ImageGalleryFragment();
-				}
-				actionbar.show();
-				break;
 		}
 
 		setTitle(title);
