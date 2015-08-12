@@ -20,6 +20,8 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.squareup.picasso.Picasso;
 
 import org.church.peachingthegospel.app.Constants;
@@ -30,12 +32,18 @@ import org.church.peachingthegospel.app.fragment.ImageGridFragment;
 
 import javax.inject.Inject;
 
+
+
 /**
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
  */
 
 public class SimpleImageActivity extends InjectableActivity {
 	android.support.v7.app.ActionBar actionbar;
+	private static final String TAG = SimpleImageActivity.class.getName();
+
+	@Inject
+	public Tracker tracker;
 
 	@Inject
 	public Picasso picasso;
@@ -84,7 +92,7 @@ public class SimpleImageActivity extends InjectableActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		tracker.setScreenName(TAG);
 
 		if (savedInstanceState != null) {
 			frIndex = savedInstanceState.getInt("frIndex");
@@ -92,9 +100,7 @@ public class SimpleImageActivity extends InjectableActivity {
 			imageUrls = savedInstanceState.getStringArray("imageUrls");
 			titles = savedInstanceState.getStringArray("titles");
 			contextType = savedInstanceState.getString("contextType");
-			Log.e("SimpleImageActivity","savedInstanceState != null");
 		} else{
-			Log.e("SimpleImageActivity","savedInstanceState == null");
 			frIndex = getIntent().getIntExtra(Constants.Extra.FRAGMENT_INDEX, 0);
 			title = getIntent().getStringExtra(titleKey);
 			imageUrls = getIntent().getStringArrayExtra(imageKey);
@@ -114,6 +120,16 @@ public class SimpleImageActivity extends InjectableActivity {
 		switch (frIndex) {
 			default:
 			case ImageListFragment.INDEX:
+
+				// All subsequent hits will be send with screen name = "main screen"
+
+
+				tracker.send(new HitBuilders.EventBuilder()
+						.setCategory("UX")
+						.setAction("click")
+						.setLabel("ImageListFragment.INDEX")
+						.build());
+
 				tag = ImageListFragment.class.getSimpleName();
 				fr = fragmentManager.findFragmentByTag(tag);
 				if (fr == null) {
@@ -123,8 +139,17 @@ public class SimpleImageActivity extends InjectableActivity {
 				}
 				((ImageListFragment)fr).setTitles(titles);
 				actionbar.show();
+
+
 				break;
 			case ImageGridFragment.INDEX:
+
+				tracker.send(new HitBuilders.EventBuilder()
+						.setCategory("UX")
+						.setAction("click")
+						.setLabel("ImageGridFragment.INDEX")
+						.build());
+
 				tag = ImageGridFragment.class.getSimpleName();
 				fr = fragmentManager.findFragmentByTag(tag);
 				if (fr == null) {
@@ -134,6 +159,13 @@ public class SimpleImageActivity extends InjectableActivity {
 				actionbar.show();
 				break;
 			case ImagePagerFragment.INDEX:
+
+				tracker.send(new HitBuilders.EventBuilder()
+						.setCategory("UX")
+						.setAction("click")
+						.setLabel("ImagePagerFragment.INDEX")
+						.build());
+
 				tag = ImagePagerFragment.class.getSimpleName();
 				fr = fragmentManager.findFragmentByTag(tag);
 				if (fr == null) {

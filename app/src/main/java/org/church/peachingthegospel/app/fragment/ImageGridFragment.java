@@ -22,6 +22,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.squareup.picasso.Picasso;
 
 import org.church.peachingthegospel.app.activity.SimpleImageActivity;
@@ -63,10 +65,18 @@ public class ImageGridFragment extends AbsListViewBaseFragment {
 		View rootView = inflater.inflate(R.layout.fr_image_grid, container, false);
 		listView = (GridView) rootView.findViewById(R.id.grid);
 		Picasso picasso = ((SimpleImageActivity)this.getActivity()).picasso;
+		final Tracker tracker =  ((SimpleImageActivity)this.getActivity()).tracker;
+
 		listView.setAdapter(new GridImageAdapter(getActivity(), imageUrls,picasso));
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+				tracker.send(new HitBuilders.EventBuilder()
+						.setCategory("UX")
+						.setAction("click")
+						.setLabel("GridImageAdapter.position="+position)
+						.build());
 				startImagePagerActivity(position,imageUrls);
 			}
 		});
