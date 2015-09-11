@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -77,5 +79,22 @@ public class DataModule {
                 .build();
     }
 
+    @Provides @Singleton
+    GoogleAnalytics provideGoogleAnalytics(Application app){
+        return GoogleAnalytics.getInstance(app);
+    }
+
+    @Provides @Singleton
+    Tracker provideTracker(Application app)
+    {
+        GoogleAnalytics analytics = GoogleAnalytics.getInstance(app);
+        analytics.setLocalDispatchPeriod(1800);
+
+        Tracker tracker = analytics.newTracker("UA-63492233-1"); // Replace with actual tracker/property Id
+        tracker.enableExceptionReporting(true);
+        tracker.enableAdvertisingIdCollection(true);
+        tracker.enableAutoActivityTracking(true);
+        return tracker;
+    }
 
 }

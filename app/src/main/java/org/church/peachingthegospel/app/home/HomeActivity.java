@@ -66,7 +66,7 @@ public class HomeActivity extends InjectableActivity {
 		homeListViewItemList.add(new HomeListViewItem(R.drawable.img_2858,"人生的奧祕"));
 		homeListViewItemList.add(new HomeListViewItem(R.drawable.img_2903,"軟弱人的需要"));
 		homeListViewItemList.add(new HomeListViewItem(R.drawable.img_2868,"上流人的需要"));
-		homeListViewItemList.add(new HomeListViewItem(R.drawable.img_2937,"乾渴婦人的需要"));
+		homeListViewItemList.add(new HomeListViewItem(R.drawable.img_2937,"不道德人的需要"));
 		homeListViewAdapter=new HomeListViewAdapter(this,homeListViewItemList,picasso);
 		listView.setAdapter(homeListViewAdapter);
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -109,7 +109,7 @@ public class HomeActivity extends InjectableActivity {
 	public void ParcheddryClick(View view) {
 		Intent intent = new Intent(this, SimpleImageActivity.class);
 		intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageListFragment.INDEX);
-		intent.putExtra("title","乾渴婦人的需要");
+		intent.putExtra("title","不道德人的需要");
 		String[] imageUrls = Constants.TEST;
 		String contextType="Parcheddry";
 		String[] titles ={"中文","English","日本語","Russkiy Yazyk"};

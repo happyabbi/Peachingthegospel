@@ -25,6 +25,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.squareup.picasso.Picasso;
 import org.church.peachingthegospel.app.Constants;
 import org.church.peachingthegospel.app.activity.SimpleImageActivity;
@@ -75,11 +78,12 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 		outState.putString("contextType",contextType);
 		outState.putStringArray("titles",titles);
 	}
-
+	 Tracker tracker;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		listImageModel = new ArrayList<>();
+		 tracker = ((SimpleImageActivity)this.getActivity()).tracker;
 
 		if (savedInstanceState != null) {
 			imageUrls = savedInstanceState.getStringArray("imageUrls");
@@ -103,6 +107,11 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				if (getContextType().equals("HumanLife")) { //人生的奧祕
 					if (getTitles()[position].equals("中文")) {
+						tracker.send(new HitBuilders.EventBuilder()
+								.setCategory("UX")
+								.setAction("click")
+								.setLabel("type=" + getContextType() + ". Lan=" + getTitles()[position])
+								.build());
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
 						intent.putExtra("title", "中文");
@@ -118,6 +127,12 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 					}
 				} else if (getContextType().equals("Personage")) { //上流人的需要
 					if (getTitles()[position].equals("中文")) {
+						tracker.send(new HitBuilders.EventBuilder()
+								.setCategory("UX")
+								.setAction("click")
+								.setLabel("type=" + getContextType() + ". Lan=" + getTitles()[position])
+								.build());
+
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
 						intent.putExtra("title", "中文");
@@ -126,6 +141,11 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 						intent.putExtra("images", imageUrls);
 						startActivity(intent);
 					} else if (getTitles()[position].equals("English")) {
+						tracker.send(new HitBuilders.EventBuilder()
+								.setCategory("UX")
+								.setAction("click")
+								.setLabel("type=" + getContextType() + ". Lan=" + getTitles()[position])
+								.build());
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
 						intent.putExtra("title", "English");
@@ -140,6 +160,12 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 					}
 				} else if (getContextType().equals("Weak")) { //軟弱人的需要
 					if (getTitles()[position].equals("中文(男生版)")) {
+						tracker.send(new HitBuilders.EventBuilder()
+								.setCategory("UX")
+								.setAction("click")
+								.setLabel("type=" + getContextType() + ". Lan=" + getTitles()[position])
+								.build());
+
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
 						intent.putExtra("title", "中文(男生版)");
@@ -149,6 +175,12 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 						startActivity(intent);
 					}
 					if (getTitles()[position].equals("中文(女生版)")) {
+						tracker.send(new HitBuilders.EventBuilder()
+								.setCategory("UX")
+								.setAction("click")
+								.setLabel("type=" + getContextType() + ". Lan=" + getTitles()[position])
+								.build());
+
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 						intent.putExtra("title", "中文(女生版)");
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
@@ -156,6 +188,12 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 						intent.putExtra("images", imageUrls);
 						startActivity(intent);
 					} else if (getTitles()[position].equals("English")) {
+						tracker.send(new HitBuilders.EventBuilder()
+								.setCategory("UX")
+								.setAction("click")
+								.setLabel("type=" + getContextType() + ". Lan=" + getTitles()[position])
+								.build());
+
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 						intent.putExtra("title", "English");
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
@@ -169,6 +207,12 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 					}
 				} else if (getContextType().equals("Parcheddry")) { //乾渴的婦人
 					if (getTitles()[position].equals("中文")) {
+						tracker.send(new HitBuilders.EventBuilder()
+								.setCategory("UX")
+								.setAction("click")
+								.setLabel("type=" + getContextType() + ". Lan=" + getTitles()[position])
+								.build());
+
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 						intent.putExtra("title", "中文");
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
@@ -176,6 +220,12 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 						intent.putExtra("images", imageUrls);
 						startActivity(intent);
 					} else if (getTitles()[position].equals("English")) {
+						tracker.send(new HitBuilders.EventBuilder()
+								.setCategory("UX")
+								.setAction("click")
+								.setLabel("type=" + getContextType() + ". Lan=" + getTitles()[position])
+								.build());
+
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 						intent.putExtra("title", "English");
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
@@ -183,6 +233,12 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 						intent.putExtra("images", imageUrls);
 						startActivity(intent);
 					} else if (getTitles()[position].equals("日本語")) {
+						tracker.send(new HitBuilders.EventBuilder()
+								.setCategory("UX")
+								.setAction("click")
+								.setLabel("type=" + getContextType() + ". Lan=" + getTitles()[position])
+								.build());
+
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
 						intent.putExtra("title", "日本語");
@@ -190,6 +246,12 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 						intent.putExtra("images", imageUrls);
 						startActivity(intent);
 					} else if (getTitles()[position].equals("Russkiy Yazyk")) {
+						tracker.send(new HitBuilders.EventBuilder()
+								.setCategory("UX")
+								.setAction("click")
+								.setLabel("type=" + getContextType() + ". Lan=" + getTitles()[position])
+								.build());
+
 						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
 						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
 						intent.putExtra("title", "Russkiy Yazyk");
