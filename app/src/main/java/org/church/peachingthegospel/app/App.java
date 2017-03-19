@@ -1,6 +1,5 @@
 package org.church.peachingthegospel.app;
 
-import android.app.Application;
 import android.content.Context;
 import org.church.peachingthegospel.app.di.Modules;
 import dagger.ObjectGraph;

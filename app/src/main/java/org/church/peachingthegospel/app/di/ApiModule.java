@@ -36,10 +36,4 @@ public class ApiModule {
                         .setEndpoint(endpoint)
                         .build();
         }
-
-//        @Provides
-//        @Singleton
-//        BitBucketApi provideBitBucketApi(RestAdapter adapter) {
-//                return adapter.create(BitBucketApi.class);
-//        }
 }
