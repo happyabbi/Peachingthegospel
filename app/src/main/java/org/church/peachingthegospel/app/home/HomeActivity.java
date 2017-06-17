@@ -26,7 +26,7 @@ import butterknife.InjectView;
 
 public class HomeActivity extends InjectableActivity {
 
-	private static final String TEST_FILE_NAME = "Universal Image Loader @#&=+-_.,!()~'%20.png";
+
 	private HomeListViewAdapter homeListViewAdapter;
 	private List<HomeListViewItem> homeListViewItemList;
 
