@@ -21,8 +21,8 @@ android {
         minSdkVersion 11
         targetSdkVersion 24
         apply plugin: 'announce'
-        versionCode 6
-        versionName "1.2"
+        versionCode 7
+        versionName "1.7"
     }
     buildTypes {
         release {

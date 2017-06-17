@@ -110,6 +110,7 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 					}
 				} else if (getContextType().equals("Personage")) { //上流人的需要
 					if (getTitles()[position].equals("中文")) {
+
 						tracker.send(new HitBuilders.EventBuilder()
 								.setCategory("UX")
 								.setAction("click")
@@ -124,7 +125,24 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 						intent.putExtra("images", imageUrls);
 						startActivity(intent);
 					}
-				} else if (getContextType().equals("Weak")) { //軟弱人的需要
+				}else if (getContextType().equals("Crime")) { //犯罪人的需要
+					if (getTitles()[position].equals("中文")) {
+						tracker.send(new HitBuilders.EventBuilder()
+								.setCategory("UX")
+								.setAction("click")
+								.setLabel("type=" + getContextType() + ". Lan=" + getTitles()[position])
+								.build());
+
+						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
+						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
+						intent.putExtra("title", "中文");
+
+						String[] imageUrls = Constants.CRIME_TW;
+						intent.putExtra("images", imageUrls);
+						startActivity(intent);
+					}
+				}
+				else if (getContextType().equals("Weak")) { //軟弱人的需要
 					if (getTitles()[position].equals("中文(男生版)")) {
 						tracker.send(new HitBuilders.EventBuilder()
 								.setCategory("UX")

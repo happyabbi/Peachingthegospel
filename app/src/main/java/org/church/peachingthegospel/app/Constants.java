@@ -181,11 +181,30 @@ public final class Constants {
                 "https://lh3.googleusercontent.com/oXtmNYxXXUDLqW-VZnCIVU_iJXoXOf6eBMh0DDVs2lQ=w599-h851-no",
         };
 
+
+        public static final String[] CRIME_TW = new String[]{
+                "http://www.luke54.org/images/1484/sinner/Pix02.jpg",
+                "http://www.luke54.org/images/1484/sinner/Pix05.jpg",
+                "http://www.luke54.org/images/1484/sinner/Pix06.jpg",
+                "http://www.luke54.org/images/1484/sinner/Pix07.jpg",
+                "http://www.luke54.org/images/1484/sinner/Pix08.jpg",
+                "http://www.luke54.org/images/1484/sinner/Pix10.jpg",
+                "http://www.luke54.org/images/1484/sinner/Pix11.jpg",
+                "http://www.luke54.org/images/1484/sinner/Pix12.jpg",
+                "http://www.luke54.org/images/1484/sinner/Pix13.jpg",
+                "http://www.luke54.org/images/1484/sinner/Pix14.jpg",
+                "http://www.luke54.org/images/1484/sinner/Pix15.jpg",
+                "http://www.luke54.org/images/1484/sinner/Pix16.jpg",
+                "http://www.luke54.org/images/1484/sinner/Pix17.jpg",
+                "http://www.luke54.org/images/1484/sinner/Pix18.jpg",
+                "http://www.luke54.org/images/1484/sinner/Pix19.jpg",
+                "http://www.luke54.org/images/1484/sinner/Pix20.jpg"
+        };
+
+
+
         private Constants() {}
 
-        public static class Config {
-                public static final boolean DEVELOPER_MODE = false;
-        }
 
         public static class Extra {
                 public static final String FRAGMENT_INDEX = "com.nostra13.example.universalimageloader.FRAGMENT_INDEX";

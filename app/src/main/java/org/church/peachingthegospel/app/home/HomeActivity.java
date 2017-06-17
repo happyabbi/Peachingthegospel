@@ -51,6 +51,7 @@ public class HomeActivity extends InjectableActivity {
 		homeListViewItemList.add(new HomeListViewItem(R.drawable.img_2903,"軟弱人的需要"));
 		homeListViewItemList.add(new HomeListViewItem(R.drawable.img_2868,"上流人的需要"));
 		homeListViewItemList.add(new HomeListViewItem(R.drawable.img_2937,"不道德人的需要"));
+		homeListViewItemList.add(new HomeListViewItem(R.drawable.pix02,"犯罪人的需要"));
 		homeListViewAdapter=new HomeListViewAdapter(this,homeListViewItemList,picasso);
 		listView.setAdapter(homeListViewAdapter);
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -70,9 +71,26 @@ public class HomeActivity extends InjectableActivity {
 					case 3:
 						ParcheddryClick(view);
 						break;
+					case 4:
+						CRIMEClick(view);
 				}
 			}
 		});
+	}
+
+	private void CRIMEClick(View view) {
+		Intent intent = new Intent(this, SimpleImageActivity.class);
+		intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageListFragment.INDEX);
+		intent.putExtra("title", "犯罪人的需要");
+		String[] imageUrls  = new String[]{
+				"https://lh3.googleusercontent.com/qyoEWCHnWM9otAz8U_xn_l-ndfzKH4LTTMCXzyzQCho=w222-h220-no"
+		};
+		String contextType="Crime";
+		String[] titles ={"中文"};
+		intent.putExtra("images", imageUrls);
+		intent.putExtra("titles",titles);
+		intent.putExtra("contextType", contextType);
+		startActivity(intent);
 	}
 
 	public void onImageHumanLifeListClick(View view) {
