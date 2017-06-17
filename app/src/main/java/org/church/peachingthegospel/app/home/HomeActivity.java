@@ -107,12 +107,12 @@ public class HomeActivity extends InjectableActivity {
 		Intent intent = new Intent(this, SimpleImageActivity.class);
 		intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageListFragment.INDEX);
 		String[] imageUrls = new String[]{
-				"https://lh3.googleusercontent.com/qyoEWCHnWM9otAz8U_xn_l-ndfzKH4LTTMCXzyzQCho=w222-h220-no",
-				"https://lh3.googleusercontent.com/BdFtUCzvu2isjXxZnTRtP0ORDbkhZAqlCa3ddwDKQoU=w208-h243-no",
+				"https://lh3.googleusercontent.com/qyoEWCHnWM9otAz8U_xn_l-ndfzKH4LTTMCXzyzQCho=w222-h220-no"
+
 		};
 		intent.putExtra("title","上流人的需要");
 		String contextType="Personage";
-		String[] titles ={"中文","English"};
+		String[] titles ={"中文"};
 		intent.putExtra("images",imageUrls);
 		intent.putExtra("titles",titles);
 		intent.putExtra("contextType",contextType);

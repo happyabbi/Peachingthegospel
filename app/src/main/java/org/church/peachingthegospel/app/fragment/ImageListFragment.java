@@ -123,23 +123,6 @@ public class ImageListFragment extends AbsListViewBaseFragment {
 						String[] imageUrls = Constants.PERSONAGE_TW;
 						intent.putExtra("images", imageUrls);
 						startActivity(intent);
-					} else if (getTitles()[position].equals("English")) {
-						tracker.send(new HitBuilders.EventBuilder()
-								.setCategory("UX")
-								.setAction("click")
-								.setLabel("type=" + getContextType() + ". Lan=" + getTitles()[position])
-								.build());
-						Intent intent = new Intent(getActivity(), SimpleImageActivity.class);
-						intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageGridFragment.INDEX);
-						intent.putExtra("title", "English");
-
-						String[] imageUrls = Constants.PERSONAGE_EN;
-						intent.putExtra("images", imageUrls);
-						startActivity(intent);
-					} else if (getTitles()[position].equals("日本語")) {
-
-					} else if (getTitles()[position].equals("Russkiy Yazyk")) {
-
 					}
 				} else if (getContextType().equals("Weak")) { //軟弱人的需要
 					if (getTitles()[position].equals("中文(男生版)")) {

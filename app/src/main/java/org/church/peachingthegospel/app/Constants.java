@@ -3,10 +3,6 @@ package org.church.peachingthegospel.app;
 
 
 public final class Constants {
-        public static String HostName="http://cloudap.coretronic.com/excelsparser/images/";
-        public static String DIR_HUMANLIFE_TW = "humanlife(tw)/";
-        public static String DIR_PERSONAGE_EN = "personage(en)/";
-        public static String DIR_PERSONAGE_TW = "personage(tw)/";
 
         public static String ACTIONBAR_STATUS="";
 
@@ -17,6 +13,7 @@ public final class Constants {
             "https://lh3.googleusercontent.com/PWK8Z3C-suKn7q3XVQpXueVM1inh-dRVHm2eW10ehak=w232-h217-no",
             "https://lh3.googleusercontent.com/waEWX4znQd2kcUJh6x6mQMvX2k2tGKZYIyDXVrshm8I=w275-h183-no"
         };
+
 
         public static final String[] WEAK_EN= new String[]{
                 "https://lh3.googleusercontent.com/n2ANlaCYsFZvQ3M5KLX6KrHVlPpynntyBn81oowAyLQ=w605-h854-no",
@@ -93,38 +90,22 @@ public final class Constants {
             "https://lh3.googleusercontent.com/7J8MlXXuVL2dwpiQdjGVaQPdGZ_aTbhtx7pv-88ySaA=w432-h726-no"
         };
 
-        public static final String[] PERSONAGE_EN =new String[]{
-            HostName + DIR_PERSONAGE_EN + "IMG_2881.JPG",
-            HostName + DIR_PERSONAGE_EN + "IMG_2882.JPG",
-            HostName + DIR_PERSONAGE_EN + "IMG_2883.JPG",
-            HostName + DIR_PERSONAGE_EN + "IMG_2884.JPG",
-            HostName + DIR_PERSONAGE_EN + "IMG_2885.JPG",
-            HostName + DIR_PERSONAGE_EN + "IMG_2886.JPG",
-            HostName + DIR_PERSONAGE_EN + "IMG_2887.JPG",
-            HostName + DIR_PERSONAGE_EN + "IMG_2888.JPG",
-            HostName + DIR_PERSONAGE_EN + "IMG_2889.JPG",
-            HostName + DIR_PERSONAGE_EN + "IMG_2890.JPG",
-            HostName + DIR_PERSONAGE_EN + "IMG_2891.JPG",
-            HostName + DIR_PERSONAGE_EN + "IMG_2892.JPG",
-            HostName + DIR_PERSONAGE_EN + "IMG_2893.JPG",
-        };
-
 
 
         public static final String[] PERSONAGE_TW = new String[] {
-            HostName + DIR_PERSONAGE_TW + "IMG_2868.JPG",
-            HostName + DIR_PERSONAGE_TW + "IMG_2869.JPG",
-            HostName + DIR_PERSONAGE_TW + "IMG_2870.JPG",
-            HostName + DIR_PERSONAGE_TW + "IMG_2871.JPG",
-            HostName + DIR_PERSONAGE_TW + "IMG_2872.JPG",
-            HostName + DIR_PERSONAGE_TW + "IMG_2873.JPG",
-            HostName + DIR_PERSONAGE_TW + "IMG_2874.JPG",
-            HostName + DIR_PERSONAGE_TW + "IMG_2875.JPG",
-            HostName + DIR_PERSONAGE_TW + "IMG_2876.JPG",
-            HostName + DIR_PERSONAGE_TW + "IMG_2877.JPG",
-            HostName + DIR_PERSONAGE_TW + "IMG_2878.JPG",
-            HostName + DIR_PERSONAGE_TW + "IMG_2879.JPG",
-            HostName + DIR_PERSONAGE_TW + "IMG_2880.JPG",
+                "https://lh3.googleusercontent.com/8KD5eN7d8fEKuJdwDq1-l95gy45FI29ts4fRQTnElHAJTuqCI-EE40YOsWuP0v3NCf6425sImhXnF6NRyQ7yG3oo97E2xnAUcd8p6HUosVPjCLPVKBAdykPbMTP_A4YaCPTfyFsvkSqO5mYokTaWDEUO5lguqfeFw9YTC8g2mQF0EkV4QYz67n5dDueY8dx0jvQNKzc7td08YXVGkVFM83Zbp7N2B0g7ZUu46qQiQB8NGATy_zwJvW1BDZu1ZsYpNaGYP4vtKEbj60Xn1gVh7ymW619TcaeUkDip4Vv0XyhwOXdxLQUXT78qQd7WFNYE5OJpDWK77fquYVBQnfyAu4ywamROA3VKx7mNWi29z0fgCRzWNIf4GzdR0_Yjr48v5jOpck4lBDBdPFrcqUjnRU_x-kjTc5E4ZNIXhMDk3i3T9Xfs52Y4wZUg_5sOZnf4oxC6VUNIpvPQiNnYK6D-RZtZUvyj14iYL_xWG9E-vyzBwaG3f-uEaJ7oO9OyPh31d432EAkd2fzznjjna_I-tvqgkXtWpnyfBbs16Lezww-mhORnfai-dYqyaWhNsNS0Z82VsWuRDN6MHMXlQTeKffPff8YbTR_5OwxszJqjGQIN00lTgjo=w678-h960-no",
+                "https://lh3.googleusercontent.com/Ld0uZekBoLovSBArUFS9KaC4ADo7oKumv2-wXG4MRjvV77dAL3TmfF87M19VCQtIvsvVQeYkhgb2A35CnblZlEliC7_QkDUTWMQ17Y1C4wvNxc-nu6uKel_g9TUtBEUfPbbmAHmmS7j_Aw287gwM3hcDFbWpOgttt41km935l_vPf-o79M9xjfTcIEO0xmuZIpfh_Vv6GvB3fDVpEiL0BJIEcv7D_iTrwnnkFnI6wpmwuVkn9_-6N6ydEYGaR7js-yk7cFDenCDebvytxUPdX-4JK2Qi4dz77Dtyi9a5Rc_CLlWtu-G81N9VPql0ZAxBrS-MWViJyg_2k5Yr1oefRUdS66Y0bNl6k5Nx0XMnXQBWyCJuZt8h7IFwwkyZ_gp29pzl82yAvgjn2dhox_IIUFzGOcrUWbHemYNIibVAexov38K-WWTwjY14aOzqomf7bfqAs2qqCVGTbB871_-E6nR7lGvvIl2Ikv5pbwYvWykhm-JZAhgUNHM-wHZ7ue1hnvMo1-iQIODpjt3ewcvpboe-oUxNMWyH6Df6ix_k2TW3F3gdTcuoYCXiJN1nFZlttlnAI21yVdLk998Kud8YN3htpjf_kO12yi10kE4-tHqEG4I=w681-h960-no",
+                "https://lh3.googleusercontent.com/sQ_eu-W_TqN-CA6YS0c0BjVSyxU3xZS5TdDiDkSYB2_FRC0Vj4rZT92Zrzs5khOhqLguHxZfAEjsgDgML5BrDyeFsto3a_xPi4jZliELpk-xemoBCgm3BRmxOoaBexa7gOflP1MZam6FC7WdklZSFhd3S4txbdtSzEpJMHX9PD8e-_QrsWFSbTq2cNJzqzSeZR23-JZsBehmkND-XTJDbfT4brLdKpGRVlzoWoP0owe7TaMghEwfDL9j40yX_XuDYmt_O8EvslxzmU_XdTKNUm2KHuVwazAIhUmowNq_Ftxt-ekNHidmqav2katH0ch35xrf7F-RZd0z3tpZyq0-b0Yn9n9RqZs-62hKPEG8tgbXYGa1W3lAzy2UGKppKT-g4WxeprJ9h4lHRXTFOLTAfj9HlyKChAPSQk7LqvZLVH7lFI_NR00p5cDe0JgwC37nTi4PHIlmPLTtJorfE9YiyYvJEn4-FeOvKwOMwn3qWOi0WRSjIHr810jViHTkRt14osb5SqBt6hdX2KdBcMo4-DdiFjyOKqRXyyb2X-s_4XeRMqHpeHywAG7nUOilzXYXBzwGPFxb5NZfoj3x8ACCylQ73KqyKPJOHlbpqdiib5CDfbI=w678-h960-no",
+                "https://lh3.googleusercontent.com/_Y1krS3ho6O7lbytwrfHshHhT5D-27zayuVZvdOEwX9n25drst1uk6VGYQ-tPudyqsW42utN-SrNOm8hyG_EHbuVFZ8ib1Ak3QHDO7QfXzelIOeQ5WaozcgT_6pgoAn84l3s2Ix6wzcekbWK721DP5mJBW81U1zDjmJ0VIB7C73sU54Ye8HWx1S4riQYBBVfBSkokiHCpxOYH4EFrcMm7ToGpr2nOC6cMMxxE0agWLFPbGQ09NnhhWI8uhHUNYoz3ZTEhR5n1a3MvQKsbEBJmmEQFSbGfCzlXZXlBbHxWg4NIupGqIoEQuA7PJxGiS_2CHqJzvG7UIddC1OI8uG2qUGd1UVbr9AhnAeGIpUfMy1aJixtac22VZQJ7Zw2dyf95noRi3i_3-fOKWP8OOzUefrriil8uC23Te9T6HI4tzbfCeQgbm56NLWbZU3seh5_jZVIEz5d9xjIbZQcVkjv1r4CkFRM3utSADymdF1IZzqVTG43xFGuhOp5fs62ocPazd-lTkmVTNYIgFoxgO0E7KopaaYmEWv5Horcp9nZLo2FI2d4fzJyR4UizhbXnz9-VvaYSYLMOIT3aMV2SO8mrGphjRWU110PUjPtpwDgjGpXojY=w682-h960-no",
+                "https://lh3.googleusercontent.com/Tnl-8NFYgfA4pCy9ucxV_VdzoHLYLAOcOXF_LA-fk0AddNaazUx_kkZGNY8A7B9H75USXexiNIK_x5EpgSK21ZNlj52NXAysMv0CdgoB3gl1lZOxL3h9RnvLwxiG6rce1uZNSdsB6LWX5B-Lyz0bOLGFM62XCCw1DdZu4vx-8Wey_Ze8330iHEHqB-ITrvtN5jU4jPuIrRKgRVpjWi6QSJesfnJgH9yJeszK8ow13KHinGbJxPrvfkliB60NN0Lgda2SzKuw6jNisqzIIdlP_mmcLQYeFiQ7t8q0DSgpvolWD5N1flm-hvVXPr6SCOib6-VAyNb_zSMLHx4kIQHLW63JOwyhdg036mam9mtxJ8G6_WbiEgiyZ3Xlas25KcXZvvQbBJ0ys3_mbrT6bwEJjZiLk4WlNEzXGY2w_dlyFyv5mK36CtYA-k8M7EAtHMuV3VKD27rAKwQyDhJhve_gj79luzAhZ8D27G2OBV4RUS0GW_252FGdUrtJYzHBOIJGNyd1Qe2mjspqhLmJHflFkecV9hQTQZMUvpDJk1jW5LIFYXodOsRoSPXA5pDzCqluExjmWoEhxhUeunf685F8d6hQ9guS_-EKPe1t6nvkYjyJlcw=w678-h960-no",
+                "https://lh3.googleusercontent.com/kqEtOhwkGC5SJWMCdI3Q59K4bnqgw6p3ConiZiMaHeEHngUW5tWReX_z97D-IOfFI4PbYdkz5TMd3_8Nw69gp8cLwSLu_1_lQfqLuXcfZ51oou4eKCsV_RFpY_d156CU_IG0yElqixbjpkX1J-eII6Xbj9KKdChhdyeMFRjzSQbLvmAU9HA3ujZLortZo5U1zUcEWuzmlJY6CGWRbp8YTN9FX88KMRcooprwjtrI_9K_qB3CNgaAhNAkqbxBFIqQvozMppcM9L9Z-CoPbZYgQwuWTneVHvs2wmWUWM4lb2lgH520aYxJc5XVsj55QpF-a7N3_1FXMyLQoK33_Vqj8s71PBxv-o-kRR_VFWbGDH73bRaOIDl86me5n3z1UF0Ir1gYDJiYoOF6gBgMLFs_CCc8dLnWe89Skqb751b8LfRnj_igvXwTqAfqS-82kVPV-z3TRY6s-NxXZtigxMyGoLhKElC4bw_QYPpn-orqOn7wve6dYn_MolkyJ-7INLn6ZO269lDF2JCLYSpatD__FO_X6ElgTdtPCPMuqaeamRMtEbkookaYLsn56DpX2dym5WXJg5RUoyBHCbiKbOegMSwWECthdZVAwAj1iW3suOi51dc=w678-h960-no",
+                "https://lh3.googleusercontent.com/IvQrDAnOvWajQmEeH1zpMXxYwaPutRMJaZL7B2MhjFz7yBmSVFk7BEZxUkbmDXhtMEf8nGPT6pH6zLM-IwOKHWLMIA1Ge7jWmAInJ7pJbf-qrv6MpJwGsvKhMn6KLr6qXECA2gSu7nyT0cy-NrCB6kDS3tQHQCBMCgzCSJUdsIFDv5BLdQ3ifqyAB5CZxGCCuwf-Z1GR78LyfwQQrnM1JFcfufDJLSsqgdV7lC_ti8O4dHi2vYLi_DZyiJ5KdfKAmF59tAE48MM5CMzRuONV1qEmwtWS7gWNa4isOeuj6qwo8xFhaa7_8I7GdPoJoC87xZpHKXgGfCjriON_cUSPRrxCwSZrV6ufz6y3IyVkRRIGpejIQQCZn78JLYhGTkXN4KKCvUNwXN_RmZgoMd27yH71tk0DF8Uy09fNIW4XtjhggqEKfeKHEuRqDZ5aF1drQtF-XnIhrp9l05IrJ3GbonAK0mMbtdSF3Olvm83kVX09fMtA-0PhANiA9jNGKtn8y2r4GcM9y2BAb9OfBP5BSK2Ju0vK5HTl8p7ycM4zmU5AC66O9JF_4YXQD6gwgFCQhJCeSXDbmgM5dVIgFw3hVPgbeSfrbsncnqLVhweRmeEqY_E=w678-h960-no",
+                "https://lh3.googleusercontent.com/DN6h64pa8kZ40SWaJLcIuHU3LddGM10-O4w7PBQPPtTutQ_uxqJDmesTjrh7F4MevPdGYZ9vm3IZ6kts9XFjrjSCKN5cJtcOShBAgQ5CXRoy6u3et8nncML3EYPFcMp9vDKHi-IocpsHdoJgXOc8GKksN3Rk024O1_E6Ksuc1bSegXqJQppOUEGJrHoH2cKBA6dIFZ0d2_dIQwCsM9RrvIKf6vpUCgSB4o4yVjrHB70UYEjoev13P77Kkwmit0edtySid_wTPXCC6zCglhdGIGwGLY1s4tOFC7u1eaCoHs1y5egUZi3JGdC9VW5Ry3jLNLqo_Hxa2pKcg8vY7293D35kwp8gySd-AZszKfEN3YAByjVl3L4i3ar02bNPfJ5EDxA4nEAY1yBDc_ZYRKF2Gi569FAeKlP3Mme4n63PaYHsObJzP13Lrpi0oOvAQyVq3EClkKw-aclQtRER0153tGLs6Rx8OsPQuDwh4kmQ71BNUc7b8FmKXKFqyzqLZrINLsW74pMluRdw1Vn-WFj13yGVXn0Aa1wxXbeJ2YPaHAKpnCZfnA0nUlWbwcrtCD8DNyWiDDvRVwVcOZZRlUDwsFPmcdrtpaWQxJecQYInP-QFAWo=w678-h960-no",
+                "https://lh3.googleusercontent.com/2jHlX_S9xG_313r-1rgi9epeRaOsQh6Orsu85hf0ppR282NkKxkgo2jWFm-Nf1lJ947bic92amgsrzQqBX6yCtdMhZpDM0wZFUFQB9rMK9Zj5m8tPAHM_Ft-lOHzOuhdLkCwf_AMnLIMIc9b8ZHvSWX4xUB8_4QJyw2sqUqXj4vR77w7fVJYOxFBCKFeIPvxm_vFkTVFpQRL3HcCtVZ66oIIXJTfP0ERe5M6icZIJWE7yADDek6wGLMcj4nas93H10q0iidx6EQnoXtFCy8rb22XXA01erhT2k74CluSWHKLFYlQxJpatXIt4kV0-Q-cuAxEmDsIvoBiNXNcZ29522Zl3BM_VPijtdcHqR3l8H5GQAcc6jDT9lA7ezxXjHWot8_NYS4b5l3iBh4UA20qdwbW2LS3RD_rO6LTMgpNTmuOMgVsUGHfEFA-gDs85j3AKLT3Sr-QUOoUalOPywyT_EJUJ3TM_tjrwHUp8X1lT0CtTBBw76moxpNhcLJV6ErdZXu8yM38qpJarJ7T4jLEd_JVC1TTZkjLKVE0ErTR_ivfmJsM9RcbQPYp30gEgqVVYoLbLmS26htLTjSjACOFTSRTQkTTIE4TzukJC0dN7vzQMQVA=w678-h960-no",
+                "https://lh3.googleusercontent.com/uJVotplBcMVYM0BV_qTKHSkxEuuskjAabo4fDtUQ6rKD-a6J-pVvx3Q46dL60-wDXhmqDd30fkq2rV4pJ0I2QHX2G1jwv0yKxqnixizxyKqkRuZBt_b_BRNwL71jHhRZhC5pn1K82UXqbjyRQYYiPCGth0A1AOA_qxdVkpZG3mPMPy4cJNAxSqyYS_v1VGm5PJ9SSpHBX-ydYfaZozisjfj4fWQWSA8jNJXBeyuE0nNz8auh5Ki7aeJ57BhUP8BUFuEmvb5zdNFqiPEGd6f10bVcPx1varlmXjbDpImWYWOKxN8lyANk4NcjJY2Skce8X_t00BJOSXtIOJ2wtdngsp6gTt48P94vNe9aejyN8Bt6AoIWibX0dfB2rKTzTmwlL1sfbKQFNmvWLFvEKIyozNFf_EhPYzzFZLMLeAxCSMYZT0nQyeOVwPZyu28oWOe37U6wo65lnJ_dsOBRrKw_QvriGwIl_5gqgqckd4S79FJ08dRbmvk1HkQ0YrVG6pAqrWpcFKQ8ktTtFFtQPhgFdd-8vCtwJwaBbz6Bttv3YP9B4KZ02nsEoElmamcWMHMFT3ZUJbHgH8OY87xd1FLrianuPa6jRa7207ORS9JXxYn1tns=w679-h960-no",
+                "https://lh3.googleusercontent.com/M1xcYaZdmZxBeaVSymXFJ5epI8nMOudGM-eT6MsmkKuzmnnReGe4A2upT8JmPPmsNlY43J7dUQ0GnZFQb76V4NAraSgTMQLKTWQAQh53dCEsCs0brn65_10nXz3F-DJ9xk9aV3XfhzqZRaTq3Bw5aGz6Mmu0QR0a6tkXuYlp48P4J2WNqGiWPLkP9ob3HuSVBY2IpbSpoWTSCULNOw_dBxO3TNWj2l0t7J6_NcXtOosammnvEeo4O-y9cogNEwhpTWjdH7t5-GGNjzSgL_FEXSsjRi2nSi9zByYWkjGNtK9cUmtr7JUUdwyJSmGP4jqzaOX_pPZxZ6_630r7CtTNNIweJyOrCumJRaGLF0E0opwrCpl_tdfqedlP7RKtjpeJo4HEaOOgNunvw92ao50IDK5VKBaHRP9eHD_ve3Lo-VAeYFMrSjSBmTdtWIuJD8gXf5-0GIwc6QJLMntS4SVXBNWYuirfrWpLDYGfRCl1uIWMI2w1Mxx1v7VmX-QwXxqKRzC1fpDc9UhdIigiV0YI8IJrZeiQy5FKMn_jprdfnKphHjALuqV8IZhCjC7KMHL4TNwAO4w_MDN6WHt1RZTlOrLqa4Uuo8R0nL6fKWDYBAb4ua8=w679-h960-no",
+                "https://lh3.googleusercontent.com/Blq272wx3TYh5axwtL7TYIFYIBHaUCEMzAhS1svp-jreaEZxCcUN87Zo2w2TkLZa0nJUv_tV2GYVGL9M3-wSU-ogG7lzFixLlZkm-HtB7oF23L2vws2zIu7FTGJORnZiqF7j59-E23YmWweNVFnb0Jp4scfBWH9Go1NuqlFjEOYKZwZfUutq4uNB2v-lwr3UBlMSrTIEZ3KoU7CKAjILxdIb3o81fHndG7KFyOj6wkavouIG4HbdBeEKPVcYNMr-74jRftcXbwItxPUyIBbUWmRmszVb6i4SMLQsKSX-JRngfHRaVaQTvRy3AWo6FkcT5drI9gqBVACtEwWgMY4nLxlsvcNL5JWUabA4GrBM8gdVvaLytRzOEIMdzpA9lvz-LcOF-Q-QOUppLU42oZ2IXJAOZU--P9u35oNyzTuBG40T3YMHJofbqSB3m8CBYzlptw0WTbf2ZL-W6kvg5ffEy_dIfpkvhlNaA7xftmj9lf6HZHhrl6NLT3G4KsEoLzy813oc-zcjVIBNEsB9u_ZgzaRh2JfZpXEoNFdjBTTAiF_13-g0XEbvz4ulxGy2cGKIb49FNF7sOEPAnBxhs7Fik2gkrFgliiPwW9c9BBiRZJjM2Mk=w678-h960-no",
+                "https://lh3.googleusercontent.com/20ApaWMpZ_XmXyrm4h6j6o6VbahKztDf8i4fKrIhS--hiE0aRjnPMxjFvDlxbBAHYm88-MozwoHXdHHctHYj2kNZaTtdJAAuTCpUUVBmLJNjzTS2Kv1jZf3PHsozGHeLtOQHxuD0bg5TYh_sYSm-jC_4S5Ox1eh8QUGl_P-lr3Ll8_Hl6OUf5iqENeeFlsntHYkoe21qbQeSG5UJrUdPOMB-I5fczH8RKmLJ7iEXzhb1KWUr3Ml8sQ0338u8PHFQhYWAvrV98suUNcM2D8rG-EnYIob6mYIZSV4AZQNy_309W5DnlS6dsLvov55khp6ZiF4w0_9Ghc1ZLjfjZlMryD9pm002Lu84gx3BZRrJUlXZPKCU0OZhw1_Ox2fVBDIvT4t_M2ET59QkSiVuiZeFsL2BAdRd5bUFP63M5yHPvJjgyU3Ns9xSeCqGqLkeSViL0jgl95KpPCJl6G_8Px7Q0MImaL3dJtG_rdhkM70pz_yeGppkohlGRzvNEoZamu3Wq4bUt9oCM44gU-7zFhdbUuR9ImnT94WHVToy9YCU9GpVniIo5dObCiBava9zgSktRfrAPafiAlW2pFS05ptfb4ARo1lBzlqf0WIlta_9dMUvwX6k=w678-h960-no",
         };
 
 
